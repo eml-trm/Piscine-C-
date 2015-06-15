@@ -10,25 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <string>
 #include "Contact.hpp"
 #include "Phonebook.hpp"
 
+void	putmenu( void )
+{
+	std::cout << "What can I do for you ?" << std::endl;
+	std::cout << "ADD contact / SEARCH contact / EXIT ?" << std::endl;
+}
+
 int	main( void )
 {
-	char buff[10];
 	Phonebook phonebook;
 	Contact contact;
-	
-	while (std::cin >> buff)
+	std::string input;
+	char  buff[256];
+
+	std::cout << "Weclome in your awesome Phonebook !" << std::endl;
+
+	while (input != "EXIT")
 	{
-		if (buff == "ADD")
-			phonebook.addContact(contact);
-		if (buff == "SEARCH")
-			phonebook.searchContact(contact);
-		if (buff == "EXIT")
-			phonebook.exit(contact);
+		putmenu();
+		std::cin.getline(buff, 256);
+		if (std::cin.eof())
+			return (0);
+		input = buff;
+		if (input == "ADD")
+			phonebook.addContact();
+		if (input == "SEARCH")
+			phonebook.searchContact();
+		if (input == "EXIT")
+			return (1);
 	}
-	phonebook.showContact(0);
 	return (0);
 }
 

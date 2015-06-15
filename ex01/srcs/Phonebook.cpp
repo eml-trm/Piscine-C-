@@ -24,30 +24,72 @@ Phonebook::~Phonebook(void) {
 	return ;
 }
 
-void 	Phonebook::showContact( int index ) {
+void 	Phonebook::showContact( int i ) {
 
-	std::cout << "first_name : " << this->contactList[index].first_name << std::endl;
-	std::cout << "last_name : " << this->contactList[index].last_name << std::endl;
-	std::cout << "nickname : " << this->contactList[index].nickname << std::endl;
-	std::cout << "login : " << this->contactList[index].login << std::endl;
-	std::cout << "postal_adress : " << this->contactList[index].postal_adress << std::endl;
-	std::cout << "email_adress : " << this->contactList[index].email_adress << std::endl;
-	std::cout << "phone_number : " << this->contactList[index].phone_number << std::endl;
-	std::cout << "birthday_date : " << this->contactList[index].birthday_date << std::endl;
-	std::cout << "favorite_meal : " << this->contactList[index].favorite_meal << std::endl;
-	std::cout << "underwear_color : " << this->contactList[index].underwear_color << std::endl;
-	std::cout << "darkest_secret : " << this->contactList[index].darkest_secret << std::endl;
+	Contact		test;
+	int			y = 0;
+
+	while (y <= 11)
+	{
+		std::cout << test.information[y] << ": "  << this->contactList[i].information[y] << std::endl;
+		y++;
+	}
 }
 
-void	Phonebook::addContact( Contact contact) {
+void	Phonebook::addContact( void ) {
+
+	Contact contact;
+	int  i;
 
 	if (index <= 7)
 	{
-		this->contactList[index] = contact;
+		i = 0;
+		while (i < 11)
+		{
+			std::cout << contact.information[i] << " : " << std::endl;
+			std::cin >> contact.information[i];
+			i++;
+		}
 		index++;
 	}
 	else
 		std::cout << "Phonebook is full!" << std::endl;
 }
 
+char 	*size_str(char *str)
+{
+	char tmp[11];
+	int i;
+
+	i = 0;
+	while (str[i] || i <= 10)
+	{
+		tmp[i] = str[i];
+		i++;
+	}
+	if (i == 10 && str[i])
+		tmp[i] = '.';
+	while (i < 10 && !str[i])
+	{
+		tmp[i] = ' ';
+		i++;
+	}
+	tmp[i] = '|';
+	tmp[i + 1] = '\0';
+	return (tmp);
+}
+
+void	Phonebook::searchContact( void )
+{
+	int i;
+	Contact contact;
+	char *tmp;
+
+	i = 0;
+	while (i < index)
+	{
+		std::cout << i << " | " << tmp = size_str(contact.information[0]) << " | " << contact.information[1] << " | " << contact.information[2] << std::endl;
+		i++;
+	}
+}
 

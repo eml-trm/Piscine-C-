@@ -26,11 +26,9 @@ public:
 
 	static int index;
 	
-	void	addContact( Contact contact);
-	void	showContact( int index );
+	void	addContact( void);
+	void	showContact( int i );
 	void	searchContact( void );
-	void	exit( void );
-
 };
 
 #endif

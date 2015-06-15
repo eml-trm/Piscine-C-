@@ -15,17 +15,17 @@
 
 Contact::Contact( void ) {
 
-	this->first_name = "empty";
-	this->last_name = "empty";
-	this->nickname = "empty";
-	this->login = "empty";
-	this->postal_adress = "empty";
-	this->email_adress = "empty";
-	this->phone_number = "empty";
-	this->birthday_date = "empty";
-	this->favorite_meal = "empty";
-	this->underwear_color = "empty";
-	this->darkest_secret = "empty";
+	this->information[0] = "first_name";
+	this->information[1] = "last_name";
+	this->information[2] = "nickname";
+	this->information[3] = "login";
+	this->information[4] = "postal_adress";
+	this->information[5] = "email_adress";
+	this->information[6] = "phone_number";
+	this->information[7] = "birthday_date";
+	this->information[8] = "favorite_meal";
+	this->information[9] = "underwear_color";
+	this->information[10] = "darkest_secret";
 
 	return ;
 } 

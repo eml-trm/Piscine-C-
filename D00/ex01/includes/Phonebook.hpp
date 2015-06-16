@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*  Contact.hpp                                         :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/15 14:23:25 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/15 15:03:54 by etermeau         ###   ########.fr       */
+/*   Created: 2015/06/15 15:02:45 by etermeau          #+#    #+#             */
+/*   Updated: 2015/06/15 15:03:52 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-# define CONTACT_H
+#ifndef PHONEBOOK_H
+# define PHONEBOOK_H
 
-#include <string>
+#include "Contact.hpp"
 
-class Contact {
-	
+class Phonebook {
+
 public:
 
-	Contact( void );
-	~Contact( void );
+	Contact contactList[8];
 
-	std::string		information[11];
+	Phonebook(void);
+	~Phonebook(void);
 
+	static int index;
+
+	void		addContact( void);
+	void		showContact( int i );
+	void		searchContact( void );
+	void		printElem( void );
 };
 
 #endif

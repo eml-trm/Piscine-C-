@@ -26,7 +26,6 @@ Contact::Contact( void ) {
 	this->information[8] = "favorite_meal";
 	this->information[9] = "underwear_color";
 	this->information[10] = "darkest_secret";
-
 	return ;
 } 
 

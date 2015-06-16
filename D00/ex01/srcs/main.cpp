@@ -17,8 +17,10 @@
 
 void	putmenu( void )
 {
-	std::cout << "What can I do for you ?" << std::endl;
-	std::cout << "ADD contact / SEARCH contact / EXIT ?" << std::endl;
+	std::cout << std::endl;
+	std::cout << "-ADD contact" << std::endl;
+	std::cout << "-SEARCH contact " << std::endl;
+	std::cout << "-EXIT " << std::endl << std::endl;
 }
 
 int	main( void )
@@ -26,23 +28,26 @@ int	main( void )
 	Phonebook phonebook;
 	Contact contact;
 	std::string input;
-	char  buff[256];
 
-	std::cout << "Weclome in your awesome Phonebook !" << std::endl;
+	std::cout << "-- Weclome in your awesome Phonebook! --" << std::endl;
 
 	while (input != "EXIT")
 	{
 		putmenu();
-		std::cin.getline(buff, 256);
+		std::cin >> input;
 		if (std::cin.eof())
 			return (0);
-		input = buff;
 		if (input == "ADD")
 			phonebook.addContact();
-		if (input == "SEARCH")
+		else if (input == "SEARCH")
 			phonebook.searchContact();
-		if (input == "EXIT")
+		else if (input == "EXIT")
+		{
+			std::cout << "Good bye ! " << std::endl;
 			return (1);
+		}
+		else
+			std::cout << "Command not found." << std::endl;
 	}
 	return (0);
 }

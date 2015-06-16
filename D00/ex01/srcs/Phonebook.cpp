@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 #include "Phonebook.hpp"
 #include "Contact.hpp"
 
@@ -29,16 +30,16 @@ void 	Phonebook::showContact( int i ) {
 	Contact		test;
 	int			y = 0;
 
-	while (y <= 11)
+	while (y < 11)
 	{
 		std::cout << test.information[y] << ": "  << this->contactList[i].information[y] << std::endl;
 		y++;
 	}
+	std::cout << std::endl;
 }
 
 void	Phonebook::addContact( void ) {
 
-	Contact contact;
 	int  i;
 
 	if (index <= 7)
@@ -46,50 +47,68 @@ void	Phonebook::addContact( void ) {
 		i = 0;
 		while (i < 11)
 		{
-			std::cout << contact.information[i] << " : " << std::endl;
-			std::cin >> contact.information[i];
+			std::cout << this->contactList[index].information[i] << " : ";
+			std::cin >> this->contactList[index].information[i];
 			i++;
 		}
+		std::cout << std::endl << "Contact saved !" << std::endl;
 		index++;
 	}
 	else
 		std::cout << "Phonebook is full!" << std::endl;
 }
 
-char 	*size_str(char *str)
-{
-	char tmp[11];
-	int i;
+void    Phonebook::printElem(void) {
 
-	i = 0;
-	while (str[i] || i <= 10)
+	char	tmp[11];
+	int		a = 0;
+
+	int		x = 0;
+
+	while (a < index)
 	{
-		tmp[i] = str[i];
-		i++;
+		int		i = 0;
+	    std::cout << a + 1 << "         |";
+	    while (i <= 2)
+	    {
+	        while (x <= 10)
+	        {
+	            tmp[x] = ' ';
+	            x++;
+	        }
+	        this->contactList[a].information[i].copy(tmp, 10, 0);
+	        if (this->contactList[a].information[i].size() > 10)
+	            tmp[9] = '.';
+	        tmp[10] = '\0';
+	        std::cout << tmp;
+	        if (i < 2)
+	            std::cout << '|';
+	        i++;
+	        x = 0;
+	    }
+	    std::cout << std::endl;
+	    a++;
 	}
-	if (i == 10 && str[i])
-		tmp[i] = '.';
-	while (i < 10 && !str[i])
-	{
-		tmp[i] = ' ';
-		i++;
-	}
-	tmp[i] = '|';
-	tmp[i + 1] = '\0';
-	return (tmp);
 }
 
 void	Phonebook::searchContact( void )
 {
-	int i;
-	Contact contact;
-	char *tmp;
+	int cmp;
 
-	i = 0;
-	while (i < index)
+	if (index == 0)
 	{
-		std::cout << i << " | " << tmp = size_str(contact.information[0]) << " | " << contact.information[1] << " | " << contact.information[2] << std::endl;
-		i++;
+		std::cout << "No contact !" << std::endl;
+		std::cout << "ADD contatc first." << std::endl << std::endl;
+		return ;
 	}
+	this->printElem();
+	std::cout << "number of contact : " << std::endl;
+	std::cin >> cmp;
+	if (cmp > index)
+	{
+		std::cout << "This contact does not exist." << std::endl << std::endl;
+		return ;
+	}
+	else
+		this->showContact(cmp - 1);
 }
-

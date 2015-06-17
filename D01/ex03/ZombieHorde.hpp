@@ -23,14 +23,11 @@ public:
 	ZombieHorde( int N );
 	~ZombieHorde();
 
-	std::string		setHordeType( void );
-	std::string		randomChump( void );
 	void			announceHorde( void );
 
 private:
 
-	int			unit;
-	Zombie**	newHorde;
+	Zombie		*_HordeZombie;
 
 };
 

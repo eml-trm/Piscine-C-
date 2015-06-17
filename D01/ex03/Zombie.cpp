@@ -14,22 +14,34 @@
 #include <stdlib.h>
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string t, std::string n): _type(t), _name(n)
-{
+Zombie::Zombie( void ): _type("Stark"), _name("Eddard") {
+
 	return ;
 }
 
-Zombie::~Zombie( void )
-{
+Zombie::~Zombie( void ) {
+	
 	return ;
+}
+
+void 		Zombie::zombieSetType( std::string type ) {
+	
+	this-> _type = type;
+	return;
+}
+
+void 		Zombie::zombieSetName( std::string name ) {
+	
+	this-> _name = name;
+	return;
 }
 
 void	Zombie::annonce( void )
 {
-	std::string sentence[] = {"braiiiiins", "faiim", "rrrhrrrhh", "bonjour", "tuuueerr"};
+	std::string sentence[] = {"braiiiiins..", "faiim..!", "rrrhrrrhh!!", "Traaitreeee..", "tuuueerr"};
 	int i;
 
 	i = rand() % 5;
-	std::cout << "<" << this->_name << "(" << this->_type << ")" << ">";
+	std::cout << "< " << this->_name << "(" << this->_type << ")" << " > ";
 	std::cout << sentence[i] << std::endl;
 }

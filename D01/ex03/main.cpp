@@ -18,4 +18,6 @@
 int		main()
 {
 	srand(time(0));
+	ZombieHorde ZombieHorde(5); 
+	return (0);
 }

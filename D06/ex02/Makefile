@@ -6,11 +6,11 @@
 #    By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/15 17:37:47 by etermeau          #+#    #+#              #
-#    Updated: 2015/06/24 15:51:02 by etermeau         ###   ########.fr        #
+#    Updated: 2015/06/24 16:40:33 by etermeau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = indentify 
 
 CC = clang++
 

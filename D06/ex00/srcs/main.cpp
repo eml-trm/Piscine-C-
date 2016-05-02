@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/23 17:02:14 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/24 11:59:43 by etermeau         ###   ########.fr       */
+/*   Updated: 2015/06/24 14:29:11 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,12 @@ void		convert_float(float fl)
 	/* Float */
 	std::cout << "float: ";
 	f = static_cast<float>(fl);
-	std::cout << f << ".0f" <<std::endl;
+	std::cout << f;
+	if (f >= 0)
+		std::cout << ".0f" << std::endl;
+	else 
+		std::cout << "f" << std::endl;
+
 }
 void		convert_double(float fl)
 {

@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Human.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/18 11:43:02 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/18 11:43:04 by etermeau         ###   ########.fr       */
+/*   Created: 2015/06/17 12:00:44 by etermeau          #+#    #+#             */
+/*   Updated: 2015/06/17 12:00:45 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef HUMAN_HPP
+# define HUMAN_HPP
 
-int 	main( void )
+#include <iostream>
+#include "Brain.hpp"
+
+class Human
 {
-	FragTrap	fight = FragTrap( "Clap" );
+public:
+	Human( void );
+	~Human( void );
 
-	fight.rangedAttack( "Dragon1" );
-	fight.meleeAttack( "Dragon2" );
+	std::string	identify( void );
+	Brain&		getBrain( void );
 
-	fight.takeDamage( 24 );
-	fight.beRepaired( 32 );
+private:
+	Brain _brain;	
+};
 
-	fight.vaulthunter_dot_exe( "Dragon2" );
-
-	fight.takeDamage( 95 );
-	fight.vaulthunter_dot_exe( "Dragon1" );
-	fight.beRepaired( 12 );
-
-	fight.takeDamage(20);
-	return 0;
-}
+#endif
